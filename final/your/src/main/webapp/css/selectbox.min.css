@@ -1,0 +1,157 @@
+@media screen and (max-width:768px){
+	.justwrap{
+	position:relative;
+	display:block;
+	float:left;
+	width:150px;
+	min-height:30px;
+	margin:0 30px
+	}
+	.justselect{
+	width:148px;
+	display:block!important;
+	position:absolute;
+	margin:2px 3px;
+	height:26px;
+	z-index:900
+	}
+	.selectbox{
+	position:absolute!important;
+	z-index:1000;pointer-events:none;
+	
+	}
+	}
+	.selectbox{
+	box-sizing:border-box;
+	font-family:Helvetica,Arial,sans-serif;
+	font-size:15pt;
+	display:inline-block;
+	float:left;
+	margin:2px;
+	background:#f2f2f2;
+	width:150px;
+	position:relative
+	
+	}
+	.selectbox-options{
+	position:absolute;
+	width:100%;
+	overflow:visible;
+	z-index:1000
+	}
+	.selectbox-options--hidden{
+	display:none
+	}
+	.selectbox__option
+	{
+	padding:5px 10px;
+	cursor:pointer;
+	color:#202020;
+	background:#fff;
+	border-left:1px solid #eee;
+	border-right:1px solid #eee;
+	display:flex;
+	align-items:center;
+	transition:.1s linear all
+	}
+	.selectbox__option:first-child
+	{
+	border-top:1px solid #eee;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px
+	}
+	.selectbox__option:last-child
+	{
+	border-bottom:1px solid #eee;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px
+	}
+	.selectbox__option:hover
+	{
+	background:#2BB673;color:#fff
+	}
+	.selectbox__option--selected
+	{
+	color:#fff;
+	background:#2BB673;
+	
+	}
+	.selectbox__label
+	{
+	cursor:pointer;
+	padding:5px 10px;
+	background:#fff;
+	color:#202020;
+	position:relative;
+	display:flex;
+	align-items:center;
+	border-radius:5px;
+	border:1px solid black;
+	transition:150ms linear all;
+	box-shadow:1px 1px 10px #eee
+	}
+	.selectbox__label:after
+	{
+	content:"";
+	display:inline;
+	border-left:5px solid transparent;
+	border-right:5px solid transparent;
+	border-top:6px solid #2BB673;
+	position:absolute;
+	right:8px;
+	top:50%;
+	transform:translateY(-50%);
+	transition:150ms linear all
+	}
+	.selectbox__label:hover
+	{
+	border:1px solid #2BB673;
+	color:#2BB673
+	}
+	.selectbox__label:hover:after
+	{
+	border-top:6px solid #2BB673
+	}
+	
+	
+
+	
+	
+	
+	
+.filebox label {
+  display: inline-block;
+  padding: .2em .45em;
+  color: #fff;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #2BB673;
+  cursor: pointer;
+  border: 1px solid #4cae4c;
+  border-radius: .25em;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.filebox label:hover {
+  background-color: #6ed36e;
+}
+
+.filebox label:active {
+  background-color: #367c36;
+}
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
+	

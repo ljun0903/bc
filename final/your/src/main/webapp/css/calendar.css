@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+table {
+    border-collapse: collapse;    
+}
+
+table, td, th {
+    border: 1px solid #FAFAFA;
+    font-weight: bold;
+    font-size: 20px;
+}
+innerTr {
+	border: 0 none;
+}
+.sunday{
+	color: red; 
+	text-align: left;
+	vertical-align: top;
+}
+.today{
+  position: relative;	
+  color: #FFFFFF;
+  text-align: left;
+  vertical-align: top;
+ 
+}
+.today::before {
+  position: absolute;
+  top: 5px;
+  z-index: -1;
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-color: #FF0000;
+  border-radius: 50%;
+  transform: translate(-0%, -0%);
+  content: '';
+}
+.satday{
+	color: blue; 
+	text-align: left;
+	vertical-align: top;
+	/* background-color: #E6E6E6; */
+	font-weight: bolder;
+}
+.otherday{
+	color: black; 
+	text-align: left;
+	vertical-align: top;		
+}
+.days2{
+	font-size: 20px;
+	color: black; 
+	text-align: center;
+	vertical-align: middle;
+	border-left-color: white;
+    border-right-color: white;
+    border-top-color: white;
+}
+.days3{
+	font-size:16px;
+	text-align: center;
+	color: black;
+	vertical-align: middle;
+	line-height:1.7em; font-weight:normal;
+	background: #FFE400;
+	font-weight: bold;
+}
+.innerTable {
+	border: 0 none;
+}
+
+.nodays{
+	background-color: white;
+}
+.today{
+  position: relative;
+  color: #FFFFFF;
+}

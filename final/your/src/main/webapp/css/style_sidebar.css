@@ -1,0 +1,87 @@
+aside {
+  color: #fff;
+  width: 250px;
+  padding-left: 20px;
+  height: 100vh;
+  background-image: linear-gradient(30deg , #fff5bc, #fff5bc);
+  border-top-right-radius: 80px;
+}
+
+aside a {
+  font-size: 15px;
+  color: #717171;
+  display: block;
+  padding: 12px;
+  padding-left: 30px;
+  text-decoration: none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+aside a:hover {
+  color: #22925c;
+  background: #fff;
+  outline: none;
+  position: relative;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+aside a i {
+  margin-right: 5px;
+}
+
+aside a:hover::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 100%;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0 20px 0 0 #fff;
+}
+
+aside a:hover::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  top: 38px;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -20px 0 0 #fff;
+}
+
+aside p {
+  margin: 0;
+  padding: 40px 0;
+}
+
+body {
+  font-family: 'Roboto';
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.message {
+  position: absolute;
+  margin-left: 300px;
+  margin-top: 300px;
+  top: 10%;
+  border-radius: 30px;
+  height: 85px;
+  width: 250px;
+  padding: 10px;
+  color: #555;
+  font-size: 45px;
+  background:linear-gradient(50deg, #eee, #fff);
+  box-shadow: 
+    .5px -.5px 1px 1px #fff,
+    -1px 1px 1px 1px #888,
+    -5px 8px 15px 1px #c7c7c7;
+}
+

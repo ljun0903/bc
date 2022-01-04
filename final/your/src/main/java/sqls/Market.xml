@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="Market">
+  
+  <select id="marketlist" parameterType="bit.your.prj.dto.MarketDto" resultType="bit.your.prj.dto.MarketDto">
+  	SELECT SEQ, CANUM, ITEMNUM, TITLE, SUBTITLE, PRICE, GRAM, COUNTRY, EXPIRATION, COUNT, CONTENT, MAINPT, NEWMAINPT,
+  		   RVCOUNT, RDATE
+  	FROM MARKET
+  	ORDER BY SEQ DESC
+  
+  </select>
+  
+    <select id="bestmarketlist" parameterType="bit.your.prj.dto.MarketDto" resultType="bit.your.prj.dto.MarketDto">
+  	SELECT SEQ, CANUM, ITEMNUM, TITLE, SUBTITLE, PRICE, GRAM, COUNTRY, EXPIRATION, COUNT, CONTENT, MAINPT, NEWMAINPT,
+  		   RVCOUNT, RDATE
+  	FROM MARKET
+  	ORDER BY RVCOUNT DESC
+  
+  </select>
+  
+  <select id="getMarket" parameterType="Integer" resultType="bit.your.prj.dto.MarketDto">
+  	SELECT SEQ, CANUM, ITEMNUM, TITLE, SUBTITLE, PRICE, GRAM, COUNTRY, EXPIRATION, COUNT, CONTENT, MAINPT, NEWMAINPT,
+  		   RVCOUNT, RDATE
+  	FROM MARKET
+  	WHERE SEQ=#{seq}
+  </select> 
+  
+    <select id="getMarket2" parameterType="Integer" resultType="bit.your.prj.dto.MarketDto">
+  	SELECT SEQ, CANUM, ITEMNUM, TITLE, SUBTITLE, PRICE, GRAM, COUNTRY, EXPIRATION, COUNT, CONTENT, MAINPT, NEWMAINPT,
+  		   RVCOUNT, RDATE
+  	FROM MARKET
+  	WHERE ITEMNUM=#{itemnum}
+  </select>
+  
+  <select id="getCalist" parameterType="Integer" resultType="bit.your.prj.dto.MarketDto">
+  	SELECT SEQ, CANUM, ITEMNUM, TITLE, SUBTITLE, PRICE, GRAM, COUNTRY, EXPIRATION, COUNT, CONTENT, MAINPT, NEWMAINPT,
+  		   RVCOUNT, RDATE
+  	FROM MARKET
+  	WHERE CANUM=#{canum}
+  	ORDER BY SEQ DESC
+  </select>
+  
+  <select id="newMarketList" parameterType="bit.your.prj.dto.MarketDto" resultType="bit.your.prj.dto.MarketDto">
+  	SELECT SEQ, CANUM, ITEMNUM, TITLE, SUBTITLE, PRICE, GRAM, COUNTRY, EXPIRATION, COUNT, CONTENT, MAINPT, NEWMAINPT,
+  		   RVCOUNT, RDATE
+  	FROM MARKET
+  	ORDER BY RDATE DESC
+  </select> 
+  
+  <insert id="uploadMarket">
+  	INSERT INTO MARKET(SEQ, CANUM,SUBCA, ITEMNUM, TITLE, SUBTITLE, PRICE, GRAM, COUNTRY, EXPIRATION, COUNT, CONTENT, MAINPT, NEWMAINPT,
+  		   RVCOUNT, RDATE)
+  	VALUES (SEQ_MARKET.NEXTVAL, #{canum}, #{subca}, ITEMNUM_MARKET.NEXTVAL, #{title}, #{subtitle}, #{price}, #{gram}, #{country}, 
+  			#{expiration}, 1, #{content}, #{mainpt}, #{newmainpt}, 0, SYSDATE) 	   
+  </insert>
+  
+  <select id="getItem" parameterType="Integer" resultType="bit.your.prj.dto.MarketDto">
+  	SELECT CANUM, ITEMNUM, NEWMAINPT, TITLE, COUNT, PRICE
+  	FROM MARKET
+  	WHERE ITEMNUM=#{itemnum}
+  </select>
+  
+  <insert id="addCart" parameterType="bit.your.prj.dto.MarketDto">
+  	INSERT INTO CART(SEQ, ID, CHECKNUM, CANUM, ITEMNUM, MAINPT, TITLE, COUNT, PRICE, ADDRESS)
+  	VALUES (SEQ_CART.NEXTVAL, #{id}, 1, #{canum}, #{itemnum}, #{mainpt}, #{title}, #{count}, #{price}, #{address})
+  </insert>
+  
+  <select id="getCartCount" parameterType="String" resultType="Integer">
+  	SELECT NVL(COUNT(*), 0)
+  	FROM CART
+  	WHERE ID=#{id} AND CHECKNUM=1
+  </select>
+  
+  <select id="getCartList" parameterType="String" resultType="bit.your.prj.dto.CartDto">
+  	SELECT SEQ, ID, CHECKNUM, CANUM, ITEMNUM, MAINPT, TITLE, COUNT, PRICE, ADDRESS
+  	FROM CART
+  	WHERE ID=#{id} AND CHECKNUM=1
+  	ORDER BY SEQ ASC
+  </select>
+  
+  
+  <select id="getSearchList" parameterType="bit.your.prj.dto.MarketParam" resultType="bit.your.prj.dto.MarketDto">
+  	SELECT SEQ, CANUM, SUBCA, ITEMNUM, TITLE, SUBTITLE, PRICE, GRAM, COUNTRY, EXPIRATION, COUNT, CONTENT, MAINPT, NEWMAINPT,
+  		   RVCOUNT, RDATE
+  	FROM MARKET
+  	WHERE 1=1
+  	<if test="search != null and search != ''">
+  		AND SUBCA LIKE '%'||#{search}||'%'
+  		OR TITLE LIKE '%'||#{search}||'%'
+  		OR SUBTITLE LIKE '%'||#{search}||'%'
+  	</if>	   
+  
+  </select>
+  
+  <delete id="delCart" parameterType="Integer">
+  	DELETE
+  	FROM CART
+  	WHERE SEQ=#{seq}
+  </delete>
+  
+  <update id="itemCountUp" parameterType="Integer">
+  	UPDATE CART
+  	SET COUNT= COUNT+1
+  	WHERE SEQ=#{seq}
+  </update>
+  
+  <update id="itemCountDown" parameterType="Integer">
+  	UPDATE CART
+  	SET COUNT= COUNT-1
+  	WHERE SEQ=#{seq}
+  </update> 
+  
+  <delete id="delAllItem" parameterType="String">
+  	DELETE
+  	FROM CART
+  	WHERE ID=#{id}
+  </delete>
+
+  
+   <select id="getCartItem" parameterType="Integer" resultType="bit.your.prj.dto.CartDto">
+  	SELECT TITLE, ITEMNUM, MAINPT, PRICE, CANUM, COUNT
+  	FROM CART
+  	WHERE SEQ=#{seq} 
+  </select>
+  
+  <insert id="insertIncome" parameterType="bit.your.prj.dto.IncomeDto">
+  	INSERT INTO INCOME (SEQ, ID, ORDERNUM, ITEMNUM, TITLE, MAINPT, PRICE, COUNT, CANUM, PDATE)
+  	VALUES (SEQ_INCOME.NEXTVAL, #{id}, #{ordernum}, #{itemnum}, #{title}, #{mainpt}, #{price}, #{count}, #{canum}, SYSDATE)
+  </insert>
+  
+  <select id="getIncome" parameterType="String" resultType="bit.your.prj.dto.IncomeDto">
+  	SELECT SEQ, ORDERNUM, ITEMNUM, TITLE, PRICE, COUNT, CANUM, PDATE, ID, MAINPT
+  	FROM INCOME
+  	WHERE ID=#{id} 
+  	ORDER BY SEQ DESC
+  </select>
+  
+  <insert id="insertReview" parameterType="bit.your.prj.dto.ReviewDto">
+  	INSERT INTO ITEMREVIEW(SEQ, NICKNAME, ORDERNUM, ITEMNUM, TITLE, CONTENT, RDATE)
+  	VALUES (SEQ_ITEMREVIEW.NEXTVAL, #{nickname}, #{ordernum}, #{itemnum}, #{title}, #{content}, SYSDATE)
+  </insert>
+  
+  <select id="getReview" parameterType="Integer" resultType="bit.your.prj.dto.ReviewDto">
+  	SELECT SEQ, NICKNAME, ORDERNUM, ITEMNUM, TITLE, CONTENT, RDATE
+  	FROM ITEMREVIEW
+  	WHERE ITEMNUM=#{itemnum}
+  </select>
+  
+  <update id="UpReviewCount" parameterType="Integer">
+  	UPDATE MARKET
+  	SET RVCOUNT= RVCOUNT+1
+  	WHERE ITEMNUM=#{itemnum}
+  </update>
+  
+  <select id="getReviewList" parameterType="String" resultType="bit.your.prj.dto.ReviewDto">
+  	SELECT SEQ, NICKNAME, ORDERNUM, ITEMNUM, TITLE, CONTENT, RDATE
+  	FROM ITEMREVIEW
+  	WHERE NICKNAME=#{nickname}
+  </select>
+
+  </mapper>

@@ -1,0 +1,296 @@
+@charset "UTF-8";
+
+.button-slide{
+  background: #2BB673;
+  width : 110px;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:45px;
+  font-size: 15px;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  border-radius: 12px;
+}
+.button-slide:hover{
+  background:#fff;
+  color: #2BB673;
+  border-radius: 12px;
+}
+.button-slide:before,.button-slide:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #2BB673;
+  transition:400ms ease all;
+  border-radius: 12px;
+}
+.button-slide:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+  border-radius: 12px;
+}
+.button-slide:hover:before,.button-slide:hover:after{
+  width:100%;
+  transition:800ms ease all;
+  border-radius: 12px;
+}
+
+.button-slide-red{
+  background: #FA5858;
+  width : 110px;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:45px;
+  font-size: 15px;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  border-radius: 12px;
+}
+.button-slide-red:hover{
+  background:#fff;
+  color: #FA5858;
+  border-radius: 12px;
+}
+.button-slide-red:before,.button-slide-red:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #FA5858;
+  transition:400ms ease all;
+  border-radius: 12px;
+}
+.button-slide-red:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+  border-radius: 12px;
+}
+.button-slide-red:hover:before,.button-slide-red:hover:after{
+  width:100%;
+  transition:800ms ease all;
+  border-radius: 12px;
+}
+
+.button-slide-blue{
+  background: #2E9AFE;
+  width : 110px;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:45px;
+  font-size: 15px;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  border-radius: 12px;
+}
+.button-slide-blue:hover{
+  background:#fff;
+  color: #2E9AFE;
+  border-radius: 12px;
+}
+.button-slide-blue:before,.button-slide-blue:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #2E9AFE;
+  transition:400ms ease all;
+  border-radius: 12px;
+}
+.button-slide-blue:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+  border-radius: 12px;
+}
+.button-slide-blue:hover:before,.button-slide-blue:hover:after{
+  width:100%;
+  transition:800ms ease all;
+  border-radius: 12px;
+}
+
+.button-slide-yellow{
+  background: #ffeb40;
+  width : 110px;
+  color:#717171;
+  border:none;
+  position:relative;
+  height:45px;
+  font-size: 15px;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  border-radius: 12px;
+}
+.button-slide-yellow:hover{
+  background:#fff;
+  color: #ffeb40;
+  border-radius: 12px;
+}
+.button-slide-yellow:before,.button-slide-yellow:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #ffeb40;
+  transition:400ms ease all;
+  border-radius: 12px;
+}
+.button-slide-yellow:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+  border-radius: 12px;
+}
+.button-slide-yellow:hover:before,.button-slide-yellow:hover:after{
+  width:100%;
+  transition:800ms ease all;
+  border-radius: 12px;
+}
+
+table.writeTable{
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  margin : 20px 10px;
+  border-radius: 20px; /* 모서리 둥글게 */
+  box-shadow : 2px 2px 5px #999;
+  font-family: 'Nanum Gothic', sans-serif;
+  padding: 30px;
+  background-color: #F2F2F2 
+}
+table.writeTable th{
+	padding: 10px; 
+}
+table.writeTable td{
+	padding: 10px;
+}
+table.writeTable input{
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.where {
+  display: block;
+  margin: 25px 15px;
+  font-size: 11px;
+  color: #000;
+  text-decoration: none;
+  font-family: verdana;
+  font-style: italic;
+}
+
+.checks {position: relative;}
+
+.checks input[type="checkbox"] {  /* 실제 체크박스는 화면에서 숨김 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0
+}
+.checks input[type="checkbox"] + label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.checks input[type="checkbox"] + label:before {  /* 가짜 체크박스 */
+  content: ' ';
+  display: inline-block;
+  width: 21px;  /* 체크박스의 너비를 지정 */
+  height: 21px;  /* 체크박스의 높이를 지정 */
+  line-height: 21px; /* 세로정렬을 위해 높이값과 일치 */
+  margin: -2px 8px 0 0;
+  text-align: center; 
+  vertical-align: middle;
+  background: #fafafa;
+  border: 1px solid #cacece;
+  border-radius : 3px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+}
+.checks input[type="checkbox"] + label:active:before,
+.checks input[type="checkbox"]:checked + label:active:before {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.checks input[type="checkbox"]:checked + label:before {  /* 체크박스를 체크했을때 */ 
+  content: '\2714';  /* 체크표시 유니코드 사용 */
+  color: #99a1a7;
+  text-shadow: 1px 1px #fff;
+  background: #e9ecee;
+  border-color: #adb8c0;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+}
+
+.checks.etrans input[type="checkbox"] + label {
+  padding-left: 30px;
+}
+.checks.etrans input[type="checkbox"] + label:before {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  margin-top: 0;
+  opacity: .6;
+  box-shadow: none;
+  border-width: 5px;
+  border-color: #2BB673;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+.checks.etrans input[type="checkbox"]:checked + label:before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  top: -2px;
+  left: 5px;
+  border-radius: 0;
+  opacity:1; 
+  background: transparent;
+  border-color:transparent #2BB673 #2BB673 transparent;
+  border-top-color:transparent;
+  border-left-color:transparent;
+  -ms-transform:rotate(45deg);
+  -webkit-transform:rotate(45deg);
+  transform:rotate(45deg);
+}
+
+.no-csstransforms .checks.etrans input[type="checkbox"]:checked + label:before {
+  /*content:"\2713";*/
+  content: "\2714";
+  top: 0;
+  left: 0;
+  width: 21px;
+  line-height: 21px;
+  color: #2BB673;
+  text-align: center;
+  border: 1px solid #6cc0e5;
+}
