@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+img {
+  min-width: 400px;
+  min-height: 300px;
+  width: 36vmin;
+  height: 46vmin;
+}
